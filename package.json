@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/csarigumba/aws-serverless-web-app/issues"
   },
-  "homepage": "https://github.com/csarigumba/aws-serverless-web-app#readme"
+  "homepage": "https://github.com/csarigumba/aws-serverless-web-app#readme",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.42.0",
+    "@aws-sdk/util-dynamodb": "^3.42.0",
+    "serverless-iam-roles-per-function": "^3.2.0"
+  }
 }
