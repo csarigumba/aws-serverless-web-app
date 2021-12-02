@@ -4,7 +4,9 @@ TODO
 
 ## Architecture
 
-TODO
+<p align="center">
+  <img width=50% src="diagram/diagram.drawio.png">
+</p>
 
 ## Deployment
 
