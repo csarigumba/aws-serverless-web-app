@@ -7,7 +7,7 @@
     - Course ✅
     - Authors ✅
   - Deploy Lambda
-    - Get all courses
+    - Get all courses ✅
     - Get course
     - Save course
     - Update course

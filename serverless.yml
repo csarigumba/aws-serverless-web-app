@@ -1,13 +1,45 @@
 service: aws-serverless-web-application
 
-provider: aws
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: local # Update for other environment: dev, stg, prd
+  region: ap-southeast-1
+
+custom:
+  authorsTableName: authors
+  coursesTableName: courses
+
+plugins:
+  - serverless-iam-roles-per-function
+  - serverless-dynamodb-local
+  - serverless-offline
+
+functions:
+  GetAllAuthors:
+    handler: ./src/api/get-all-authors.handler
+    name: get-all-authors-${self:provider.stage}
+    memorySize: 128
+    timeout: 5
+    environment:
+      DYNAMODB_TABLE_NAME: ${self:custom.authorsTableName}
+    events:
+      - http:
+          path: authors
+          method: GET
+    iamRoleStatementsName: get-all-authors-${self:provider.stage}-role # prevent auto generated role name for function: ${functionName} is too long (over 64 chars).
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - 'dynamodb:Scan'
+        Resource: !GetAtt AuthorsDynamoDbTable.Arn
 
 resources: # CloudFormation template syntax
   Resources:
     CoursesDynamoDbTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: courses
+        TableName: ${self:custom.coursesTableName}
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S
@@ -20,7 +52,7 @@ resources: # CloudFormation template syntax
     AuthorsDynamoDbTable:
       Type: AWS::DynamoDB::Table
       Properties:
-        TableName: authors
+        TableName: ${self:custom.authorsTableName}
         AttributeDefinitions:
           - AttributeName: id
             AttributeType: S

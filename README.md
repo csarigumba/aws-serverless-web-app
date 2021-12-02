@@ -16,10 +16,18 @@ TODO
 
 ## Deployment
 
-TODO
+Run the following command.
+
+```sh
+$ serverless deploy --aws-profile {PROFILE} -r {AWS_REGION}
+```
 
 ## Testing
 
 TODO
 
 ## Cleanup
+
+```sh
+$ serverless remove --aws-profile {PROFILE} -r {AWS_REGION} -v
+```
