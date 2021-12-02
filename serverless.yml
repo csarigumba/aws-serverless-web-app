@@ -1,0 +1,32 @@
+service: aws-serverless-web-application
+
+provider: aws
+
+resources: # CloudFormation template syntax
+  Resources:
+    CoursesDynamoDbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: courses
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+    AuthorsDynamoDbTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: authors
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1

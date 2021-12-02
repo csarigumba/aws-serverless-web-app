@@ -3,9 +3,9 @@
 - Create diagrams ✅
 - AWS backend
   - Deploy API Gateway
-  - Deploy DynamoDb
-    - Course
-    - Authors
+  - Deploy DynamoDb ✅
+    - Course ✅
+    - Authors ✅
   - Deploy Lambda
     - Get all courses
     - Get course
@@ -35,3 +35,7 @@ Ref. CloudFront serverless, https://medium.com/yld-blog/caching-in-with-cloudfro
 ### Github Workflows
 
 - TODO
+
+### Final Touch up
+
+- Readme
