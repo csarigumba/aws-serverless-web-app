@@ -1,23 +1,16 @@
-const AWS = require("aws-sdk");
+const AWS = require('aws-sdk');
 const dynamodb = new AWS.DynamoDB({
-  apiVersion: "2012-08-10"
+  apiVersion: '2012-08-10',
 });
 
-exports.handler = (event, context, callback) => {
+exports.handler = async event => {
   const params = {
     Key: {
       id: {
-        S: event.id
-      }
+        S: event.id,
+      },
     },
-    TableName: "courses"
+    TableName: 'courses',
   };
-  dynamodb.deleteItem(params, (err, data) => {
-    if (err) {
-      console.log(err);
-      callback(err);
-    } else {
-      callback(null, data);
-    }
-  });
+  await dynamodb.deleteItem(params).promise();
 };
