@@ -1,45 +1,27 @@
-const AWS = require("aws-sdk");
-const dynamodb = new AWS.DynamoDB({
-  apiVersion: "2012-08-10"
-});
+const db = require('./database/db');
+const { UpdateItemCommand } = require('@aws-sdk/client-dynamodb');
+const { marshall } = require('@aws-sdk/util-dynamodb');
 
-exports.handler = (event, context, callback) => {
+exports.handler = async event => {
+  console.info(`Received event: ${JSON.stringify(event)}`);
+  try {
+    const body = JSON.parse(event.body);
+    const courseId = event.pathParameters.id;
+
+    const params = buildParams(body, courseId);
+    console.log(params);
+  } catch (error) {
+    console.error(`An error occurred during saving to database. ${error}`);
+    return utils.buildFailureResponse(error, HTTP_ERROR);
+  }
+};
+
+const buildParams = (body, id) => {
+  const objKeys = Object.keys(body);
   const params = {
-    Item: {
-      id: {
-        S: event.id
-      },
-      title: {
-        S: event.title
-      },
-      watchHref: {
-        S: event.watchHref
-      },
-      authorId: {
-        S: event.authorId
-      },
-      length: {
-        S: event.length
-      },
-      category: {
-        S: event.category
-      }
-    },
-    TableName: "courses"
+    TableName: process.env.DYNAMODB_TABLE_NAME,
+    Key: marshall({ id }),
+    UpdateExpression: `SET ${objKeys.map((_, index) => `#key${index} = :value${index}`).join(', ')}`,
   };
-  dynamodb.putItem(params, (err, data) => {
-    if (err) {
-      console.log(err);
-      callback(err);
-    } else {
-      callback(null, {
-        id: params.Item.id.S,
-        title: params.Item.title.S,
-        watchHref: params.Item.watchHref.S,
-        authorId: params.Item.authorId.S,
-        length: params.Item.length.S,
-        category: params.Item.category.S
-      });
-    }
-  });
+  return params;
 };
