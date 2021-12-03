@@ -74,6 +74,20 @@ functions:
         Action:
           - 'dynamodb:DeleteItem'
         Resource: !GetAtt CoursesDynamoDbTable.Arn
+  GetAllCourse:
+    handler: ./src/api/get-all-courses.handler
+    name: get-all-courses-${self:provider.stage}
+    environment:
+      DYNAMODB_TABLE_NAME: ${self:custom.coursesTableName}
+    events:
+      - http:
+          path: courses
+          method: GET
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - 'dynamodb:Scan'
+        Resource: !GetAtt CoursesDynamoDbTable.Arn
   GetAllAuthors:
     handler: ./src/api/get-all-authors.handler
     name: get-all-authors-${self:provider.stage}

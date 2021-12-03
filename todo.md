@@ -1,19 +1,19 @@
 ### Backend
 
-- Create diagrams ✅
-- AWS backend
-  - Deploy API Gateway
-  - Deploy DynamoDb ✅
-    - Course ✅
-    - Authors ✅
-  - Deploy Lambda
-    - Get course ✅
-    - Save course ✅
-    - Update course ✅
-    - Delete course ✅
-    - Get all courses
-    - Get all authors ✅
-  - Good to have: Add CloudFront to API Gateway??
+- ✅ Create diagrams
+- ✅ AWS backend
+  - ✅ Deploy API Gateway
+  - ✅ Deploy DynamoDb
+    - ✅ Course
+    - ✅ Authors
+  - ✅ Deploy Lambda
+    - ✅ Get course
+    - ✅ Save course
+    - ✅ Update course
+    - ✅ Delete course
+    - ✅ Get all courses
+    - ✅ Get all authors
+  - ⭐️ Good to have: Add CloudFront to API Gateway??
 - Backend implementation
   - Get all courses
   - Get course
