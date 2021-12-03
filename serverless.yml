@@ -32,6 +32,20 @@ functions:
         Action:
           - 'dynamodb:GetItem'
         Resource: !GetAtt CoursesDynamoDbTable.Arn
+  SaveCourse:
+    handler: ./src/api/save-course.handler
+    name: save-course-${self:provider.stage}
+    environment:
+      DYNAMODB_TABLE_NAME: ${self:custom.coursesTableName}
+    events:
+      - http:
+          path: course
+          method: POST
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - 'dynamodb:PutItem'
+        Resource: !GetAtt CoursesDynamoDbTable.Arn
   GetAllAuthors:
     handler: ./src/api/get-all-authors.handler
     name: get-all-authors-${self:provider.stage}
