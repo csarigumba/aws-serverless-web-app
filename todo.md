@@ -16,7 +16,7 @@
   - ⭐️ Good to have: Add CloudFront to API Gateway??
 - Backend implementation
   - ✅ Create course
-  - Get course
+  - ✅ Get course
   - Update course
   - Delete course
   - Get all courses
