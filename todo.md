@@ -8,19 +8,20 @@
     - ✅ Authors
   - ✅ Deploy Lambda
     - ✅ Get course
-    - ✅ Save course
+    - ✅ Create course
     - ✅ Update course
     - ✅ Delete course
     - ✅ Get all courses
     - ✅ Get all authors
   - ⭐️ Good to have: Add CloudFront to API Gateway??
 - Backend implementation
-  - Get all courses
+  - ✅ Create course
   - Get course
-  - Save course
   - Update course
   - Delete course
+  - Get all courses
   - Get all authors
+  - Add validation using joi
 
 ### Frontend
 
