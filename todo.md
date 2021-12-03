@@ -7,12 +7,12 @@
     - Course ✅
     - Authors ✅
   - Deploy Lambda
-    - Get all courses ✅
+    - Get all courses
     - Get course
     - Save course
     - Update course
     - Delete course
-    - Get all authors
+    - Get all authors ✅
   - Good to have: Add CloudFront to API Gateway??
 - Backend implementation
   - Get all courses

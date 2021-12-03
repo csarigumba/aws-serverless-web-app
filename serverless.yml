@@ -5,6 +5,8 @@ provider:
   runtime: nodejs14.x
   stage: local # Update for other environment: dev, stg, prd
   region: ap-southeast-1
+  memorySize: 128
+  timeout: 10
 
 custom:
   authorsTableName: authors
@@ -16,11 +18,23 @@ plugins:
   - serverless-offline
 
 functions:
+  GetCourse:
+    handler: ./src/api/get-course.handler
+    name: get-course-${self:provider.stage}
+    environment:
+      DYNAMODB_TABLE_NAME: ${self:custom.coursesTableName}
+    events:
+      - http:
+          path: course/{id}
+          method: GET
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - 'dynamodb:GetItem'
+        Resource: !GetAtt CoursesDynamoDbTable.Arn
   GetAllAuthors:
     handler: ./src/api/get-all-authors.handler
     name: get-all-authors-${self:provider.stage}
-    memorySize: 128
-    timeout: 5
     environment:
       DYNAMODB_TABLE_NAME: ${self:custom.authorsTableName}
     events:
