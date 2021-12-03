@@ -46,6 +46,20 @@ functions:
         Action:
           - 'dynamodb:PutItem'
         Resource: !GetAtt CoursesDynamoDbTable.Arn
+  UpdateCourse:
+    handler: ./src/api/update-course.handler
+    name: update-course-${self:provider.stage}
+    environment:
+      DYNAMODB_TABLE_NAME: ${self:custom.coursesTableName}
+    events:
+      - http:
+          path: course/{id}
+          method: PUT
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - 'dynamodb:UpdateItem'
+        Resource: !GetAtt CoursesDynamoDbTable.Arn
   GetAllAuthors:
     handler: ./src/api/get-all-authors.handler
     name: get-all-authors-${self:provider.stage}

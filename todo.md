@@ -9,7 +9,7 @@
   - Deploy Lambda
     - Get course ✅
     - Save course ✅
-    - Update course
+    - Update course ✅
     - Delete course
     - Get all courses
     - Get all authors ✅
