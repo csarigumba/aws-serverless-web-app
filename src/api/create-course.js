@@ -1,6 +1,6 @@
-const db = require('./database/db');
 const { PutItemCommand } = require('@aws-sdk/client-dynamodb');
 const { marshall } = require('@aws-sdk/util-dynamodb');
+const db = require('./database/db');
 const utils = require('./common/utils');
 const { HTTP_OK, HTTP_ERROR } = require('./common/http-status');
 
