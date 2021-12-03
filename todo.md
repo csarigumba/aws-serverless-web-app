@@ -10,7 +10,7 @@
     - Get course ✅
     - Save course ✅
     - Update course ✅
-    - Delete course
+    - Delete course ✅
     - Get all courses
     - Get all authors ✅
   - Good to have: Add CloudFront to API Gateway??

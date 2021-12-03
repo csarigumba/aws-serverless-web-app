@@ -60,6 +60,20 @@ functions:
         Action:
           - 'dynamodb:UpdateItem'
         Resource: !GetAtt CoursesDynamoDbTable.Arn
+  DeleteCourse:
+    handler: ./src/api/delete-course.handler
+    name: delete-course-${self:provider.stage}
+    environment:
+      DYNAMODB_TABLE_NAME: ${self:custom.coursesTableName}
+    events:
+      - http:
+          path: course/{id}
+          method: DELETE
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - 'dynamodb:DeleteItem'
+        Resource: !GetAtt CoursesDynamoDbTable.Arn
   GetAllAuthors:
     handler: ./src/api/get-all-authors.handler
     name: get-all-authors-${self:provider.stage}
