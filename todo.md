@@ -18,10 +18,17 @@
   - ✅ Create course
   - ✅ Get course
   - ✅ Update course
+    - 404 Not Found
   - ✅ Delete course
-  - Get all courses
+    - 404 Not Found
+  - ✅ Get all courses
   - Get all authors
 - Add validation using joi in request
+  - Create course
+  - Update course
+- Pagination
+  - Get all courses
+  - Get all authors
 
 ### Frontend
 
