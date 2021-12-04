@@ -3,7 +3,7 @@ const { marshall, unmarshall } = require('@aws-sdk/util-dynamodb');
 const db = require('./database/db');
 const utils = require('./common/utils');
 const { HTTP_OK } = require('./common/http-status');
-const ValidationError = require('./exception/not-found');
+const NotFoundError = require('./exception/not-found');
 
 exports.handler = async event => {
   console.info(`Received event: ${JSON.stringify(event)}`);
@@ -28,7 +28,7 @@ exports.handler = async event => {
       });
     } else {
       console.info(`Course not exist. CourseId=${courseId}`);
-      throw new ValidationError(`Course not exist. CourseId=${courseId}`);
+      throw new NotFoundError(`Course not found. CourseId=${courseId}`);
     }
   } catch (error) {
     console.error(`An error occurred. ${error}`);

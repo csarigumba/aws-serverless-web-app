@@ -22,7 +22,7 @@
   - ✅ Delete course
     - 404 Not Found
   - ✅ Get all courses
-  - Get all authors
+  - ✅ Get all authors
 - Add validation using joi in request
   - Create course
   - Update course
