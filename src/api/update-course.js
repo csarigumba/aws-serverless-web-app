@@ -23,7 +23,7 @@ exports.handler = async event => {
       statusCode: HTTP_OK,
     });
   } catch (error) {
-    console.error(`An error occurred during saving to database. ${error}`);
+    console.error(`An error occurred. ${error}`);
     return utils.buildFailureResponse(error, HTTP_ERROR);
   }
 };

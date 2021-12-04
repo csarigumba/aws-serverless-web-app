@@ -14,7 +14,7 @@ const buildFailureResponse = (error, statusCode) => {
     statusCode,
     body: JSON.stringify({
       message: error ? error.message : 'An internal server error occurred.',
-      stack: error.stack,
+      details: error.stack,
     }),
   };
   return response;
