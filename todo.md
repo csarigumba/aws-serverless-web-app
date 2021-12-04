@@ -18,7 +18,7 @@
   - ✅ Create course
   - ✅ Get course
   - ✅ Update course
-  - Delete course
+  - ✅ Delete course
   - Get all courses
   - Get all authors
 - Add validation using joi in request
