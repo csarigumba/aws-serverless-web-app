@@ -1,3 +1,4 @@
+const { HTTP_ERROR } = require('../common/http-status');
 const buildSuccessResponse = ({ statusCode, data }) => {
   const response = {
     statusCode,
@@ -10,6 +11,7 @@ const buildSuccessResponse = ({ statusCode, data }) => {
 };
 
 const buildFailureResponse = (error, statusCode) => {
+  statusCode = statusCode ?? HTTP_ERROR;
   const response = {
     statusCode,
     body: JSON.stringify({

@@ -18,9 +18,9 @@
   - ✅ Create course
   - ✅ Get course
   - ✅ Update course
-    - 404 Not Found
+    - ✅ 404 Not Found
   - ✅ Delete course
-    - 404 Not Found
+    - ✅ 404 Not Found
   - ✅ Get all courses
   - ✅ Get all authors
 - Add validation using joi in request
