@@ -1,11 +1,11 @@
-const buildSuccessResponse = ({ statusCode, data, message }) => {
+const buildSuccessResponse = ({ statusCode, data }) => {
   const response = {
     statusCode,
-    body: JSON.stringify({
-      message,
-      data: data,
-    }),
   };
+
+  if (data) {
+    response.body = JSON.stringify(data);
+  }
   return response;
 };
 
