@@ -2,7 +2,7 @@ const { GetItemCommand } = require('@aws-sdk/client-dynamodb');
 const { marshall, unmarshall } = require('@aws-sdk/util-dynamodb');
 const db = require('./database/db');
 const utils = require('./common/utils');
-const { HTTP_OK, HTTP_ERROR } = require('./common/http-status');
+const { HTTP_OK } = require('./common/http-status');
 const ValidationError = require('./exception/not-found');
 
 exports.handler = async event => {
