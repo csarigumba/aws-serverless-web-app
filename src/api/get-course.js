@@ -27,7 +27,6 @@ exports.handler = async event => {
 
     return utils.buildSuccessResponse({
       data: course,
-      message: '',
       statusCode: HTTP_OK,
     });
   } catch (error) {
