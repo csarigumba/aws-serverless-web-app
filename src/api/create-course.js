@@ -3,12 +3,15 @@ const { marshall } = require('@aws-sdk/util-dynamodb');
 const db = require('./database/db');
 const utils = require('./common/utils');
 const { HTTP_CREATED, HTTP_ERROR } = require('./common/http-status');
+const Joi = require('joi');
 
 exports.handler = async event => {
   console.info(`Received event: ${JSON.stringify(event)}`);
 
   try {
     const course = JSON.parse(event.body);
+    await validate(course);
+
     const params = {
       TableName: process.env.DYNAMODB_TABLE_NAME,
       Item: marshall(course || {}),
@@ -25,4 +28,18 @@ exports.handler = async event => {
     console.error(`An error occurred during saving to database. ${error}`);
     return utils.buildFailureResponse(error, HTTP_ERROR);
   }
+};
+
+const validate = async body => {
+  const schema = Joi.object({
+    id: Joi.number().required(),
+    title: Joi.string().required(),
+    authorId: Joi.number().required(),
+    length: Joi.string(),
+    category: Joi.string(),
+    watchHref: Joi.string().uri(),
+  });
+
+  const { value, error } = await schema.validate(body);
+  console.log(`value: ${JSON.stringify(value)}`);
 };
