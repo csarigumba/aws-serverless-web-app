@@ -24,8 +24,8 @@
   - ✅ Get all courses
   - ✅ Get all authors
 - Add validation using joi in request
-  - Create course
-  - Update course
+  - ✅ Create course
+  - ✅ Update course
 - Pagination
   - Get all courses
   - Get all authors
