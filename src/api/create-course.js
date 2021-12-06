@@ -1,7 +1,7 @@
 const { PutItemCommand } = require('@aws-sdk/client-dynamodb');
 const { marshall } = require('@aws-sdk/util-dynamodb');
 const db = require('./database/db');
-const utils = require('./common/utils');
+const utils = require('./helpers/utils');
 const validateCreateCourseSchema = require('./validation/create-course-schema');
 const { HTTP_CREATED } = require('./common/http-status');
 
