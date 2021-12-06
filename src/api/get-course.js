@@ -1,7 +1,7 @@
 const { GetItemCommand } = require('@aws-sdk/client-dynamodb');
 const { marshall, unmarshall } = require('@aws-sdk/util-dynamodb');
 const db = require('./database/db');
-const utils = require('./common/utils');
+const utils = require('./helpers/utils');
 const { HTTP_OK } = require('./common/http-status');
 const NotFoundError = require('./exception/not-found');
 
