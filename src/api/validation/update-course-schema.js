@@ -8,7 +8,7 @@ const validateUpdateCourseSchema = request => {
     title: Joi.string().empty(''),
     authorId: Joi.number().empty(''),
     length: Joi.string().empty(''),
-    category: Joi.string(),
+    category: Joi.string().empty(''),
     watchHref: Joi.string().uri().empty(''),
   });
 
