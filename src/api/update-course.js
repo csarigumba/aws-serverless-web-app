@@ -1,8 +1,9 @@
 const { GetItemCommand, UpdateItemCommand } = require('@aws-sdk/client-dynamodb');
-const { marshall } = require('@aws-sdk/util-dynamodb');
+const { marshall, unmarshall } = require('@aws-sdk/util-dynamodb');
 const db = require('./database/db');
 const utils = require('./common/utils');
-const { HTTP_OK, HTTP_ERROR } = require('./common/http-status');
+const { HTTP_OK } = require('./common/http-status');
+const validateCreateCourseSchema = require('./validation/update-course-schema');
 const NotFoundError = require('./exception/not-found');
 
 exports.handler = async event => {
@@ -10,6 +11,7 @@ exports.handler = async event => {
   try {
     const course = JSON.parse(event.body);
     const courseId = event.pathParameters.id;
+    validateCreateCourseSchema(course);
 
     const foundCourse = await findCourse(courseId);
     if (!foundCourse) {
@@ -17,14 +19,16 @@ exports.handler = async event => {
       throw new NotFoundError(`Course not found. CourseId=${courseId}`);
     }
 
-    const updatedCourse = await update(course, courseId);
+    await update(course, courseId);
+
+    const updatedCourse = await findCourse(courseId);
     return utils.buildSuccessResponse({
       data: updatedCourse,
       statusCode: HTTP_OK,
     });
   } catch (error) {
     console.error(`An error occurred. ${error}`);
-    return utils.buildFailureResponse(error, HTTP_ERROR);
+    return utils.buildFailureResponse(error, error.statusCode);
   }
 };
 
@@ -36,7 +40,7 @@ const findCourse = async courseId => {
 
   console.info(`Retrieving item in database. CourseId=${courseId}`);
   let { Item: course } = await db.send(new GetItemCommand(params));
-  return course;
+  return unmarshall(course);
 };
 
 const update = async (course, courseId) => {
@@ -44,11 +48,7 @@ const update = async (course, courseId) => {
 
   console.log(`Updating item. CourseId=${courseId}, Params=${JSON.stringify(params, null, 2)}`);
   await db.send(new UpdateItemCommand(params));
-
-  course.id = courseId;
   console.info(`Successfully updated item. Course=${JSON.stringify(course)}`);
-
-  return course;
 };
 
 const buildUpdateParams = (body, id) => {
