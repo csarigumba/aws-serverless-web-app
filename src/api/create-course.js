@@ -3,7 +3,7 @@ const { marshall } = require('@aws-sdk/util-dynamodb');
 const db = require('./database/db');
 const utils = require('./common/utils');
 const validateCreateCourseSchema = require('./validation/create-course-schema');
-const { HTTP_CREATED, HTTP_ERROR } = require('./common/http-status');
+const { HTTP_CREATED } = require('./common/http-status');
 
 exports.handler = async event => {
   console.info(`Received event: ${JSON.stringify(event)}`);
