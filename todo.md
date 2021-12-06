@@ -26,9 +26,6 @@
 - Add validation using joi in request
   - ✅ Create course
   - ✅ Update course
-- Pagination
-  - Get all courses
-  - Get all authors
 
 ### Frontend
 
