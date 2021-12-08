@@ -30,12 +30,19 @@
 
 ### Frontend
 
-- AWS Frontend
+- AWS Frontend Serverless
   - S3
   - CloudFront
 - Frontend Implementation
-  - Run frontend in local environment
-  - Connect frontend to API in local environment
+  - ✅ Run frontend in local environment
+  - ✅ Connect frontend to API in local environment
+- Test frontend in local
+  - Get course
+  - Create course
+  - Update course
+  - Delete course
+  - ✅ Get all courses
+  - Get all authors
 
 Ref. CloudFront serverless, https://medium.com/yld-blog/caching-in-with-cloudfront-using-serverless-5a174651ab14
 

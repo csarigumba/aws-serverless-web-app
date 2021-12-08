@@ -77,7 +77,7 @@ functions:
       DYNAMODB_TABLE_NAME: ${self:custom.coursesTableName}
     events:
       - http:
-          path: course/{id}
+          path: courses/{id}
           method: DELETE
     iamRoleStatements:
       - Effect: 'Allow'
