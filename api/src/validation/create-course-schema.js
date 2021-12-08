@@ -3,7 +3,6 @@ const validate = require('./validate');
 
 const validateCreateCourseSchema = request => {
   const schema = Joi.object({
-    id: Joi.number().required(),
     title: Joi.string().required(),
     authorId: Joi.number().required(),
     length: Joi.string(),

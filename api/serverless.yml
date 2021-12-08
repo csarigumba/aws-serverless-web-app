@@ -34,7 +34,7 @@ functions:
       DYNAMODB_TABLE_NAME: ${self:custom.coursesTableName}
     events:
       - http:
-          path: course/{id}
+          path: courses/{id}
           method: GET
     iamRoleStatements:
       - Effect: 'Allow'
@@ -48,7 +48,7 @@ functions:
       DYNAMODB_TABLE_NAME: ${self:custom.coursesTableName}
     events:
       - http:
-          path: course
+          path: courses
           method: POST
     iamRoleStatements:
       - Effect: 'Allow'
@@ -62,7 +62,7 @@ functions:
       DYNAMODB_TABLE_NAME: ${self:custom.coursesTableName}
     events:
       - http:
-          path: course/{id}
+          path: courses/{id}
           method: PUT
     iamRoleStatements:
       - Effect: 'Allow'
