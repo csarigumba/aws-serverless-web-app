@@ -83,6 +83,7 @@ functions:
       - Effect: 'Allow'
         Action:
           - 'dynamodb:DeleteItem'
+          - 'dynamodb:GetItem'
         Resource: !GetAtt CoursesDynamoDbTable.Arn
   GetAllCourse:
     handler: ./src/api/get-all-courses.handler
