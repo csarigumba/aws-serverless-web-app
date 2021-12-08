@@ -1,1 +1,1 @@
-export default "<YOUR_API_URL>";
+export default 'http://localhost:3000/local';
