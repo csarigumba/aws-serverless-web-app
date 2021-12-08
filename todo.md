@@ -26,7 +26,7 @@
 - Add validation using joi in request
   - ✅ Create course
   - ✅ Update course
-- Test backend in AWS
+- ✅ Test backend in AWS
 
 ### Frontend
 
