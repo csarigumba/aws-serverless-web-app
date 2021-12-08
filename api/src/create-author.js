@@ -2,7 +2,7 @@ const { PutItemCommand } = require('@aws-sdk/client-dynamodb');
 const { marshall } = require('@aws-sdk/util-dynamodb');
 const db = require('./database/db');
 const utils = require('./helpers/utils');
-const validateCreateCourseSchema = require('./validation/create-course-schema');
+const validateCreateAuthorSchema = require('./validation/create-author-schema');
 const { HTTP_CREATED } = require('./common/http-status');
 
 exports.handler = async event => {
@@ -10,7 +10,7 @@ exports.handler = async event => {
 
   try {
     const course = JSON.parse(event.body);
-    validateCreateCourseSchema(course);
+    validateCreateAuthorSchema(course);
 
     const params = {
       TableName: process.env.DYNAMODB_TABLE_NAME,

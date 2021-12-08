@@ -99,6 +99,20 @@ functions:
         Action:
           - 'dynamodb:Scan'
         Resource: !GetAtt CoursesDynamoDbTable.Arn
+  CreateAuthor:
+    handler: ./src/create-author.handler
+    name: create-author-${self:provider.stage}
+    environment:
+      DYNAMODB_TABLE_NAME: ${self:custom.authorsTableName}
+    events:
+      - http:
+          path: authors
+          method: POST
+    iamRoleStatements:
+      - Effect: 'Allow'
+        Action:
+          - 'dynamodb:PutItem'
+        Resource: !GetAtt AuthorsDynamoDbTable.Arn
   GetAllAuthors:
     handler: ./src/get-all-authors.handler
     name: get-all-authors-${self:provider.stage}
