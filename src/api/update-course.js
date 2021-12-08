@@ -40,7 +40,7 @@ const findCourse = async courseId => {
 
   console.info(`Retrieving item in database. CourseId=${courseId}`);
   let { Item: course } = await db.send(new GetItemCommand(params));
-  return unmarshall(course);
+  return course ? unmarshall(course) : null;
 };
 
 const update = async (course, courseId) => {
