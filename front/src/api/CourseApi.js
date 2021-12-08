@@ -9,7 +9,9 @@ class CourseApi {
 
   static saveCourse(course) {
     if (course.id) {
-      return fetch(`${SERVER_URL}/${course.id}`, {
+      const courseId = course.id;
+      delete course.id;
+      return fetch(`${SERVER_URL}/${courseId}`, {
         method: 'put',
         headers: {
           'Content-Type': 'application/json',

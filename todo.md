@@ -39,8 +39,8 @@
 - Test frontend in local
   - Get course
   - Create course
-  - Update course
-  - Delete course
+  - ✅ Update course
+  - ✅ Delete course
   - ✅ Get all courses
   - Get all authors
 
