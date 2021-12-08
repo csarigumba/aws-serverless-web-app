@@ -24,7 +24,25 @@ $ serverless deploy --aws-profile {PROFILE} -r {AWS_REGION}
 
 ## Testing
 
-TODO
+### Local Environment Testing
+
+**Optional:** Install the following dependency for local testing.
+
+```sh
+$ npm i -g serverless serverless-dynamodb-local serverless-offline
+```
+
+Install DynamoDb local to the current directory
+
+```sh
+$ serverless dynamodb install
+```
+
+Start local API
+
+```sh
+$ serverless offline start
+```
 
 ## Cleanup
 
