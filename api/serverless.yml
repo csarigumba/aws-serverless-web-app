@@ -1,4 +1,4 @@
-service: aws-serverless-web-application
+service: aws-serverless-web-application-api
 
 provider:
   name: aws
