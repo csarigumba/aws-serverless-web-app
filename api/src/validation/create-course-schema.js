@@ -4,7 +4,7 @@ const validate = require('./validate');
 const validateCreateCourseSchema = request => {
   const schema = Joi.object({
     title: Joi.string().required(),
-    authorId: Joi.number().required(),
+    authorId: Joi.string().required(),
     length: Joi.string(),
     category: Joi.string(),
     watchHref: Joi.string().uri(),

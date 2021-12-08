@@ -25,7 +25,7 @@ class CourseApi {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(course),
-      }).then(response => response.json());
+      }).then(_ => console.log('Create course successful!'));
     }
   }
 

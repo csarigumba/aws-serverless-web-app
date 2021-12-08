@@ -6,7 +6,7 @@ const validateUpdateCourseSchema = request => {
   const schema = Joi.object({
     id: Joi.string().empty(''),
     title: Joi.string().empty(''),
-    authorId: Joi.number().empty(''),
+    authorId: Joi.string().empty(''),
     length: Joi.string().empty(''),
     category: Joi.string().empty(''),
     watchHref: Joi.string().uri().empty(''),

@@ -3,7 +3,7 @@ const { marshall, unmarshall } = require('@aws-sdk/util-dynamodb');
 const db = require('./database/db');
 const utils = require('./helpers/utils');
 const { HTTP_OK } = require('./common/http-status');
-const validateCreateCourseSchema = require('./validation/update-course-schema');
+const validateUpdateCourseSchema = require('./validation/update-course-schema');
 const NotFoundError = require('./exception/not-found');
 
 exports.handler = async event => {
@@ -11,7 +11,7 @@ exports.handler = async event => {
   try {
     const course = JSON.parse(event.body);
     const courseId = event.pathParameters.id;
-    validateCreateCourseSchema(course);
+    validateUpdateCourseSchema(course);
 
     const foundCourse = await findCourse(courseId);
     if (!foundCourse) {
