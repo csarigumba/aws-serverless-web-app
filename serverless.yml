@@ -3,7 +3,7 @@ service: aws-serverless-web-application
 provider:
   name: aws
   runtime: nodejs14.x
-  stage: local # Update for other environment: dev, stg, prd
+  stage: dev # Update for other environment: dev, stg, prd
   region: ap-southeast-1
   memorySize: 128
   timeout: 10
@@ -68,6 +68,7 @@ functions:
       - Effect: 'Allow'
         Action:
           - 'dynamodb:UpdateItem'
+          - 'dynamodb:GetItem'
         Resource: !GetAtt CoursesDynamoDbTable.Arn
   DeleteCourse:
     handler: ./src/api/delete-course.handler
