@@ -18,6 +18,7 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         AccessControl: PublicRead
+        BucketName: ${self:custom.siteName}
         WebsiteConfiguration:
           IndexDocument: index.html
 
@@ -35,7 +36,6 @@ resources:
                 - s3:GetObject
               Resource:
                 Fn::Join: ['', ['arn:aws:s3:::', { 'Ref': 'StaticSite' }, '/*']]
-
   Outputs:
     StaticSiteS3BucketName:
       Value:
