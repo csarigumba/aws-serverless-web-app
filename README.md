@@ -24,7 +24,7 @@ $ serverless deploy --aws-profile {PROFILE} -r {AWS_REGION}
 
 ## Testing
 
-### Local Environment Testing
+### Local Environment Testing (Backend)
 
 **Optional:** Install the following dependency for local testing.
 
@@ -42,6 +42,12 @@ Start local API
 
 ```sh
 $ serverless offline start
+```
+
+### Frontend
+
+```sh
+$ serverless plugin install -n serverless-s3-sync
 ```
 
 ## Cleanup
