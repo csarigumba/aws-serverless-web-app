@@ -41,3 +41,4 @@ resources:
       Value: !Ref StaticSite
     StaticSiteS3BucketWebsiteURL:
       Value: !GetAtt StaticSite.WebsiteURL
+# TODO: Add CloudFront for caching static files
