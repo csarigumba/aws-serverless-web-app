@@ -38,15 +38,6 @@ resources:
                 Fn::Join: ['', ['arn:aws:s3:::', { 'Ref': 'StaticSite' }, '/*']]
   Outputs:
     StaticSiteS3BucketName:
-      Value:
-        'Ref': StaticSite
-    StaticSiteS3BucketDomainName:
-      Value:
-        Fn::GetAtt:
-          - StaticSite
-          - DomainName
+      Value: !Ref StaticSite
     StaticSiteS3BucketWebsiteURL:
-      Value:
-        Fn::GetAtt:
-          - StaticSite
-          - WebsiteURL
+      Value: !GetAtt StaticSite.WebsiteURL
