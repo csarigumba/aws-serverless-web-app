@@ -1,0 +1,6 @@
+api:
+  stage: dev
+  lambda:
+    runtime: nodejs14.x
+    memory: 128
+    timeout: 10
