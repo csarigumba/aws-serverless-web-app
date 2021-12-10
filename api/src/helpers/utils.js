@@ -2,6 +2,10 @@ const { HTTP_ERROR } = require('../common/http-status');
 const buildSuccessResponse = ({ statusCode, data }) => {
   const response = {
     statusCode,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
   };
 
   if (data) {
