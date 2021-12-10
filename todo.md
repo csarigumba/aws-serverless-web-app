@@ -33,7 +33,7 @@
 
 - AWS Frontend Serverless
   - S3
-  - CloudFront
+  - ⭐️ CloudFront
 - Frontend Implementation
   - ✅ Run frontend in local environment
   - ✅ Connect frontend to API in local environment
@@ -44,6 +44,11 @@
   - ✅ Delete course
   - ✅ Get all courses
   - ✅ Get all authors
+
+### Script in deploying
+
+- Backend
+- Frontend
 
 ### Makefile
 
