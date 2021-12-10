@@ -32,7 +32,7 @@
 ### Frontend
 
 - AWS Frontend Serverless
-  - S3
+  - ✅ S3
   - ⭐️ CloudFront
 - Frontend Implementation
   - ✅ Run frontend in local environment
