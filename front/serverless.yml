@@ -5,6 +5,10 @@ plugins:
 
 provider:
   name: aws
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'ap-southeast-1'}
+  environment:
+    FRONT_ROOT_FILE: ${file(./config/${self:provider.stage}.yml):front.rootFile}
 
 custom:
   siteName: aws-serverless-web-application-front
@@ -20,7 +24,7 @@ resources:
         AccessControl: PublicRead
         BucketName: ${self:custom.siteName}
         WebsiteConfiguration:
-          IndexDocument: index.html
+          IndexDocument: ${env:FRONT_ROOT_FILE, 'index.html'}
 
     StaticSiteS3BucketPolicy:
       Type: AWS::S3::BucketPolicy
