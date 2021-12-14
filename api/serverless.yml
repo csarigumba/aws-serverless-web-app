@@ -1,4 +1,4 @@
-service: aws-serverless-web-application-api
+service: aws-serverless-web-app-api
 
 plugins:
   - serverless-iam-roles-per-function
