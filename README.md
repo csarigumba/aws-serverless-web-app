@@ -14,12 +14,46 @@ TODO
 4. The business logic is stored in the Lambda function. We are using Lambda to take advantage of the auto scaling capabilities as well as the convenience of serverless. _I really love Lambda, all you have to do is to take care of the business logics and whatnot!_ 😻
 5. For the data store, we will use DynamoDb as our table schema will be simple.
 
+## Prerequitesite
+
+- [Docker](https://docs.docker.com/engine/installation/)
+- [Docker-Compose](https://docs.docker.com/compose/install/)
+- [Make](https://sourceforge.net/projects/gnuwin32/files/make/3.81/make-3.81-src.zip/download?use_mirror=nchc&download=)
+
+Create `.env` for environment variables and pull the docker image.
+
+```sh
+$ make .env deps
+```
+
+Provide your AWS credentials in the `.env` file.
+
+```text
+AWS_ACCESS_KEY_ID={AWS_ACCESS_KEY_ID}
+AWS_SECRET_ACCESS_KEY={AWS_SECRET_ACCESS_KEY}
+AWS_DEFAULT_REGION={AWS_DEFAULT_REGION}
+```
+
+Pull dependencies
+
+```sh
+$ make install install-plugin
+```
+
 ## Deployment
 
 Run the following command.
 
+API Server
+
 ```sh
-$ serverless deploy --aws-profile {PROFILE} -r {AWS_REGION}
+$ make deploy-api
+```
+
+Frontend
+
+```sh
+$ make deploy-front
 ```
 
 ## Testing
