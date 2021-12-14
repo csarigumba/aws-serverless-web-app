@@ -11,6 +11,7 @@ install:
 
 install-plugin:
 	$(COMPOSE_RUN_SAM_NODE) serverless plugin install -n serverless-iam-roles-per-function
+	$(COMPOSE_RUN_SAM_NODE) serverless plugin install -n serverless-dynamodb-local
 
 deploy-api:
 	$(COMPOSE_RUN_SAM_NODE) serverless deploy --verbose
