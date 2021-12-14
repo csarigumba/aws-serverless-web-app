@@ -4,7 +4,6 @@ plugins:
   - serverless-iam-roles-per-function
   - serverless-dynamodb-local
   - serverless-offline
-
 provider:
   name: aws
   stage: ${opt:stage, 'dev'}

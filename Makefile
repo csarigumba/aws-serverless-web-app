@@ -12,7 +12,7 @@ install:
 install-plugin:
 	$(COMPOSE_RUN_SAM_NODE) serverless plugin install -n serverless-iam-roles-per-function
 
-deploy:
+deploy-api:
 	$(COMPOSE_RUN_SAM_NODE) serverless deploy --verbose
 
 remove:
