@@ -1,4 +1,5 @@
 COMPOSE_RUN_SAM_NODE = docker-compose run --rm serverless_node
+STAGE=local
 
 .env:
 	cp .env.example .env
@@ -15,8 +16,8 @@ install-plugin:
 	$(COMPOSE_RUN_SAM_NODE) serverless plugin install -n serverless-offline
 
 deploy-api:
-	$(COMPOSE_RUN_SAM_NODE) serverless deploy --verbose
+	$(COMPOSE_RUN_SAM_NODE) serverless deploy --verbose --stage $(STAGE)
 
-remove:
+remove-api:
 	$(COMPOSE_RUN_SAM_NODE) serverless remove --verbose
 
