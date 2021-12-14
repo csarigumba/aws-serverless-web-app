@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  serverless_node:
+    image: amaysim/serverless:2.68.0
+    container_name: serverless_node
+    network_mode: host
+    volumes:
+      - ./:/app
+    working_dir: /app
+    env_file: .env
