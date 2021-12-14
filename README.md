@@ -47,8 +47,10 @@ Run the following command.
 API Server
 
 ```sh
-$ make deploy-api
+$ make deploy-api STAGE={STAGE}
 ```
+
+Stage value can be `local`, `dev`, `stg`, and `prd`.
 
 Frontend
 
