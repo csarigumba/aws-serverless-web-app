@@ -23,7 +23,8 @@ deploy-api:
 build-front:
 	$(COMPOSE_RUN_SAM_NODE_FRONT) sh scripts/build.sh $(STAGE)
 
-deploy-front:
+deploy-front: build-front
+	$(COMPOSE_RUN_SAM_NODE_FRONT) serverless deploy --verbose --stage $(STAGE)
 
 remove-api:
 	$(COMPOSE_RUN_SAM_NODE) serverless remove --verbose
