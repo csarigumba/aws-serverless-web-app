@@ -47,12 +47,13 @@
 
 ### Script in deploying
 
-- Backend
-- Frontend
+- ✅ Backend
+- ✅ Frontend
 
 ### Makefile
 
-- TODO
+- ✅ Backend
+- ✅ Frontend
 
 ### Github Workflows
 
