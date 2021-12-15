@@ -11,14 +11,9 @@ apiEndpoint=$(aws cloudformation describe-stacks \
   --output text)
 
 # 03 Replace file
-
 cp src/api/serverUrl.example src/api/serverUrl.js
 sed -i -e "s@{API_ENDPOINT_REPLACE_ME}@$apiEndpoint@g" ./src/api/serverUrl.js
 
-
-
-cat ./src/api/serverUrl.js
 # 04 build
-
-#npm install
-# npm run build
+npm install
+npm run build
