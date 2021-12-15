@@ -1,0 +1,2 @@
+// export default 'http://localhost:3000/local';
+export default '{API_ENDPOINT_REPLACE_ME}';
