@@ -8,6 +8,7 @@ provider:
   name: aws
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'ap-southeast-1'}
+  stackname: aws-serverless-web-app-api-${sls:stage}
   runtime: ${file(./config/${self:provider.stage}.yml):api.lambda.runtime}
   memorySize: ${file(./config/${self:provider.stage}.yml):api.lambda.memory}
   timeout: ${file(./config/${self:provider.stage}.yml):api.lambda.timeout}

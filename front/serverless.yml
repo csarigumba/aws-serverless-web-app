@@ -7,6 +7,7 @@ provider:
   name: aws
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'ap-southeast-1'}
+  stackname: aws-serverless-web-app-api-${sls:stage}
   environment:
     FRONT_ROOT_FILE: ${file(./config/${self:provider.stage}.yml):front.rootFile}
 
